@@ -34,13 +34,13 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                 builder: (BuildContext context) {
                   return Container(
                     width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                            'https://wallpapers-clan.com/wp-content/uploads/2024/08/violet-evergarden-writing-wallpaper-desktop-wallpaper-cover.jpg'),
+                          'https://wallpapers-clan.com/wp-content/uploads/2024/08/violet-evergarden-writing-wallpaper-desktop-wallpaper-cover.jpg',
+                        ),
                       ),
                     ),
                     // child: Placeholder(),
@@ -59,18 +59,17 @@ class _CarouselWidgetState extends State<CarouselWidget> {
             children: [1, 2, 3, 4, 5].asMap().entries.map(
               (entry) {
                 return Container(
-                  width: 12.0,
-                  height: 8.0,
+                  width: 12,
+                  height: 10,
                   margin: EdgeInsets.symmetric(
                     vertical: 8,
                     horizontal: 2,
                   ),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: (Theme.of(context).brightness == Brightness.dark
-                            ? Colors.white
-                            : Colors.black)
-                        .withOpacity(_current == entry.key ? 0.9 : 0.4),
+                    color: _current == entry.key
+                        ? Color.fromRGBO(37, 136, 243, 1)
+                        : Colors.white70,
                   ),
                 );
               },
