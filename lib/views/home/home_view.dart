@@ -1,3 +1,4 @@
+import 'package:anime_app/views/home/widgets/animes_list_view.dart';
 import 'package:anime_app/views/home/widgets/text_header.dart';
 import 'package:flutter/material.dart';
 import 'package:anime_app/views/home/widgets/carousel_widget.dart';
@@ -39,6 +40,30 @@ class HomeView extends StatelessWidget {
                   ),
                   const SizedBox(
                     height: 10,
+                  ),
+                  AnimesListView(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextHeader(
+                    title: 'Popular',
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  AnimesListView(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextHeader(
+                    title: 'Latest',
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  AnimesListView(),
+                  const SizedBox(
+                    height: 100,
                   ),
                 ],
               ),
