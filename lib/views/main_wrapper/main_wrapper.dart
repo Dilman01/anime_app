@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:anime_app/views/seasons/seasons_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:anime_app/views/home/home_view.dart';
@@ -19,6 +20,7 @@ class _MainWrapperState extends State<MainWrapper> {
   final List<Widget> screens = [
     HomeView(),
     SearchView(),
+    SeasonsView(),
     SavedView(),
   ];
 
@@ -88,9 +90,23 @@ class _MainWrapperState extends State<MainWrapper> {
                         });
                       },
                       child: Icon(
-                        Icons.bookmark_rounded,
+                        Icons.auto_awesome,
                         size: selectedItem == 2 ? 36 : 32,
                         color: selectedItem == 2
+                            ? Color.fromRGBO(35, 137, 242, 1)
+                            : Colors.grey,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectedItem = 3;
+                        });
+                      },
+                      child: Icon(
+                        Icons.bookmark_rounded,
+                        size: selectedItem == 3 ? 36 : 32,
+                        color: selectedItem == 3
                             ? Color.fromRGBO(35, 137, 242, 1)
                             : Colors.grey,
                       ),
