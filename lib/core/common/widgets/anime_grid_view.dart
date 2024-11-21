@@ -12,7 +12,6 @@ class AnimeGridView extends StatelessWidget {
         mainAxisSpacing: 12,
         mainAxisExtent: 180,
       ),
-      // shrinkWrap: true,
       itemCount: 30,
       itemBuilder: (context, index) {
         return SizedBox(

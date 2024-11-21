@@ -26,6 +26,7 @@ class _SearchViewState extends State<SearchView> {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
               onTap: () {

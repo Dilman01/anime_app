@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:anime_app/views/anime_details/widgets/custom_app_bar.dart';
 import 'package:anime_app/views/home/widgets/animes_list_view.dart';
 import 'package:anime_app/views/home/widgets/text_header.dart';
-import 'package:flutter/material.dart';
 import 'package:anime_app/views/home/widgets/carousel_widget.dart';
 
 class HomeView extends StatelessWidget {

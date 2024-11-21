@@ -1,5 +1,6 @@
-import 'package:anime_app/views/anime_details/anime_details_view.dart';
 import 'package:flutter/material.dart';
+
+import 'package:anime_app/views/anime_details/anime_details_view.dart';
 
 class AnimeCard extends StatelessWidget {
   const AnimeCard({super.key});
@@ -20,7 +21,6 @@ class AnimeCard extends StatelessWidget {
             width: 120,
             margin: EdgeInsets.symmetric(horizontal: 5),
             decoration: BoxDecoration(
-              color: Colors.red,
               borderRadius: BorderRadius.circular(8),
               image: DecorationImage(
                 fit: BoxFit.cover,

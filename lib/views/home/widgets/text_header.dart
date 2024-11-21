@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'package:anime_app/views/home/see_all_screen.dart';
+
 class TextHeader extends StatelessWidget {
   const TextHeader({
     super.key,
     required this.title,
-    this.onTap,
   });
 
   final String title;
-  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,15 @@ class TextHeader extends StatelessWidget {
           ),
         ),
         InkWell(
-          onTap: onTap,
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => SeeAllScreen(
+                  title: title,
+                ),
+              ),
+            );
+          },
           child: Text(
             'See all',
             style: TextStyle(
