@@ -1,5 +1,5 @@
-import 'package:anime_app/views/home/widgets/anime_card.dart';
 import 'package:flutter/material.dart';
+import 'package:anime_app/core/common/widgets/anime_card.dart';
 
 class AnimesListView extends StatelessWidget {
   const AnimesListView({super.key});
