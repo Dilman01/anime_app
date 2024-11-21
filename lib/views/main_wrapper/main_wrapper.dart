@@ -36,13 +36,13 @@ class _MainWrapperState extends State<MainWrapper> {
             color: Colors.white.withOpacity(0.1),
           ),
           borderRadius: const BorderRadius.all(
-            Radius.circular(32),
+            Radius.circular(24),
           ),
           color: Color.fromRGBO(17, 45, 67, 0.7),
         ),
         child: ClipRRect(
           borderRadius: const BorderRadius.all(
-            Radius.circular(32),
+            Radius.circular(24),
           ),
           child: ClipPath(
             child: BackdropFilter(

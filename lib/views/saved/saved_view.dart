@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:anime_app/core/common/widgets/anime_grid_view.dart';
 
 class SavedView extends StatelessWidget {
   const SavedView({super.key});
@@ -6,9 +7,10 @@ class SavedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Saved'),
+      appBar: AppBar(
+        title: Text('Saved Animes'),
       ),
+      body: AnimeGridView(),
     );
   }
 }

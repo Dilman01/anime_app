@@ -1,5 +1,7 @@
-import 'package:anime_app/core/common/widgets/anime_card.dart';
+import 'package:anime_app/views/search/search_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'package:anime_app/core/common/widgets/anime_grid_view.dart';
 
 import 'package:anime_app/views/anime_details/widgets/custom_app_bar.dart';
 import 'package:anime_app/views/search/widgets/search_genre_chip.dart';
@@ -25,13 +27,25 @@ class _SearchViewState extends State<SearchView> {
         padding: EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
-            SearchTextField(),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => SearchScreen(),
+                  ),
+                );
+              },
+              child: SearchTextField(
+                enabled: false,
+              ),
+            ),
             SizedBox(
               height: 20,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SearchGenreChip(
                     title: 'Adventure',
@@ -85,20 +99,7 @@ class _SearchViewState extends State<SearchView> {
               height: 20,
             ),
             Expanded(
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 12,
-                  mainAxisExtent: 180,
-                ),
-                // shrinkWrap: true,
-                itemCount: 30,
-                itemBuilder: (context, index) {
-                  return SizedBox(
-                    child: AnimeCard(),
-                  );
-                },
-              ),
+              child: AnimeGridView(),
             ),
           ],
         ),
