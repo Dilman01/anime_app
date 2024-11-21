@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class GenreChip extends StatelessWidget {
-  const GenreChip({super.key, required this.title});
+  const GenreChip({
+    super.key,
+    required this.title,
+  });
 
   final String title;
 

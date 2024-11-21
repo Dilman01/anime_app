@@ -46,7 +46,7 @@ class _MainWrapperState extends State<MainWrapper> {
           ),
           child: ClipPath(
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
+              filter: ImageFilter.blur(sigmaY: 8, sigmaX: 8),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Row(

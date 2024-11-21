@@ -1,3 +1,4 @@
+import 'package:anime_app/views/anime_details/widgets/custom_app_bar.dart';
 import 'package:anime_app/views/home/widgets/animes_list_view.dart';
 import 'package:anime_app/views/home/widgets/text_header.dart';
 import 'package:flutter/material.dart';
@@ -10,19 +11,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Icon(
-              Icons.reorder_rounded,
-              size: 30,
-            ),
-            Icon(
-              Icons.notifications,
-              size: 30,
-            ),
-          ],
-        ),
+        title: CustomAppBar(),
       ),
       body: CustomScrollView(
         slivers: [

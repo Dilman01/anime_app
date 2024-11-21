@@ -52,7 +52,7 @@ class DetailsSection extends StatelessWidget {
             height: 10,
           ),
           SizedBox(
-            height: 160,
+            height: 180,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 2,
@@ -76,7 +76,7 @@ class DetailsSection extends StatelessWidget {
             height: 10,
           ),
           SizedBox(
-            height: 160,
+            height: 180,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 10,
