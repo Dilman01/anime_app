@@ -1,3 +1,4 @@
+import 'package:anime_app/models/anime.dart';
 import 'package:flutter/material.dart';
 
 import 'package:anime_app/core/common/widgets/anime_grid_view.dart';
@@ -6,8 +7,10 @@ class SeeAllScreen extends StatelessWidget {
   const SeeAllScreen({
     super.key,
     required this.title,
+    required this.animes,
   });
 
+  final List<Anime> animes;
   final String title;
 
   @override
@@ -18,7 +21,9 @@ class SeeAllScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: AnimeGridView(),
+        child: AnimeGridView(
+          animes: animes,
+        ),
       ),
     );
   }

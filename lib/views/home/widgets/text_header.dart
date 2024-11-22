@@ -1,3 +1,4 @@
+import 'package:anime_app/models/anime.dart';
 import 'package:flutter/material.dart';
 
 import 'package:anime_app/views/home/see_all_screen.dart';
@@ -6,9 +7,11 @@ class TextHeader extends StatelessWidget {
   const TextHeader({
     super.key,
     required this.title,
+    required this.animes,
   });
 
   final String title;
+  final List<Anime> animes;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +32,7 @@ class TextHeader extends StatelessWidget {
               MaterialPageRoute(
                 builder: (context) => SeeAllScreen(
                   title: title,
+                  animes: animes,
                 ),
               ),
             );

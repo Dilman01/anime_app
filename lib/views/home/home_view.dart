@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:anime_app/core/constants/anime_categories.dart';
+import 'package:anime_app/views/home/widgets/anime_rank.dart';
+
 import 'package:anime_app/views/anime_details/widgets/custom_app_bar.dart';
-import 'package:anime_app/views/home/widgets/animes_list_view.dart';
-import 'package:anime_app/views/home/widgets/text_header.dart';
 import 'package:anime_app/views/home/widgets/carousel_widget.dart';
 
 class HomeView extends StatelessWidget {
@@ -25,35 +26,15 @@ class HomeView extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  TextHeader(
-                    title: 'Best anime',
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  AnimesListView(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextHeader(
-                    title: 'Popular',
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  AnimesListView(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextHeader(
-                    title: 'Latest',
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  AnimesListView(),
-                  const SizedBox(
-                    height: 100,
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: animeCategories.length,
+                    itemBuilder: (context, index) {
+                      final category = animeCategories[index];
+
+                      return AnimeRank(category: category);
+                    },
                   ),
                 ],
               ),

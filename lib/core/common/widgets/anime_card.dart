@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:anime_app/views/anime_details/anime_details_view.dart';
 
 class AnimeCard extends StatelessWidget {
-  const AnimeCard({super.key});
+  const AnimeCard({
+    super.key,
+    this.title,
+    this.imageUrl,
+  });
+
+  final String? title;
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,8 @@ class AnimeCard extends StatelessWidget {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                  'https://realwomenofgaming.com/wp-content/uploads/2022/01/mnt.jpg?w=1000',
+                  imageUrl ??
+                      'https://realwomenofgaming.com/wp-content/uploads/2022/01/mnt.jpg?w=1000',
                 ),
               ),
             ),
@@ -36,7 +44,7 @@ class AnimeCard extends StatelessWidget {
             right: 0,
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 5),
-              padding: EdgeInsets.symmetric(horizontal: 5, vertical: 4),
+              padding: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   stops: [0, 0.6],
@@ -48,30 +56,40 @@ class AnimeCard extends StatelessWidget {
                   end: Alignment.bottomCenter,
                 ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'My Neighbor Totoro',
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Text(
-                    '1988 - 1h 35m',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
+              child: Text(
+                title ?? 'My Neighbor Totoro',
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
+              // child: Column(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   children: [
+              //     Text(
+              //       'My Neighbor Totoro',
+              //       overflow: TextOverflow.ellipsis,
+              //       maxLines: 2,
+              //       style: TextStyle(
+              //         fontSize: 12,
+              //         color: Colors.white,
+              //         fontWeight: FontWeight.w600,
+              //       ),
+              //     ),
+              //     Text(
+              //       '1988 - 1h 35m',
+              //       style: TextStyle(
+              //         fontSize: 12,
+              //         color: Colors.white,
+              //         fontWeight: FontWeight.w500,
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ),
           ),
         ],

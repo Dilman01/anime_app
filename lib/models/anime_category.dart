@@ -17,15 +17,3 @@ class AnimeCategory {
     );
   }
 }
-
-const animeCategories = [
-  AnimeCategory(title: 'Top Anime', rankingType: 'all'),
-  AnimeCategory(title: 'Top Airing', rankingType: 'airing'),
-  AnimeCategory(title: 'Top Upcoming', rankingType: 'upcoming'),
-  AnimeCategory(title: 'Top TV Series', rankingType: 'tv'),
-  AnimeCategory(title: 'Top OVA', rankingType: 'ova'),
-  AnimeCategory(title: 'Top Movies', rankingType: 'movie'),
-  AnimeCategory(title: 'Top Specials', rankingType: 'special'),
-  AnimeCategory(title: 'Top Popular', rankingType: 'bypopularity'),
-  AnimeCategory(title: 'Top Favorited', rankingType: 'favorite'),
-];
