@@ -1,6 +1,9 @@
+import 'package:anime_app/cubits/anime_seasonal/anime_seasonal_cubit.dart';
+import 'package:anime_app/views/seasons/widgets/season_drop_down_menu.dart';
 import 'package:flutter/material.dart';
 
 import 'package:anime_app/core/common/widgets/anime_grid_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SeasonsView extends StatelessWidget {
   const SeasonsView({super.key});
@@ -16,52 +19,30 @@ class SeasonsView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DropdownMenu(
-              width: MediaQuery.of(context).size.width * 0.9,
-              menuHeight: 300,
-              dropdownMenuEntries: [
-                DropdownMenuEntry(
-                  value: '2024 Fall',
-                  label: '2024 Fall',
-                ),
-                DropdownMenuEntry(
-                  value: '2024 Summer',
-                  label: '2024 Summer',
-                ),
-                DropdownMenuEntry(
-                  value: '2024 Spring',
-                  label: '2024 Spring',
-                ),
-                DropdownMenuEntry(
-                  value: '2024 Winter',
-                  label: '2024 Winter',
-                ),
-                DropdownMenuEntry(
-                  value: '2024 Winter',
-                  label: '2024 Winter',
-                ),
-                DropdownMenuEntry(
-                  value: '2024 Winter',
-                  label: '2024 Winter',
-                ),
-                DropdownMenuEntry(
-                  value: '2024 Winter',
-                  label: '2024 Winter',
-                ),
-              ],
-              initialSelection: '2024 Fall',
-              menuStyle: MenuStyle(
-                elevation: WidgetStatePropertyAll(0),
-                backgroundColor: WidgetStatePropertyAll(
-                  Color.fromRGBO(1, 6, 20, 1),
-                ),
-              ),
-            ),
+            SeasonDropDownMenu(),
             SizedBox(
               height: 10,
             ),
             Expanded(
-              child: AnimeGridView(),
+              child: BlocBuilder<AnimeSeasonalCubit, AnimeSeasonalState>(
+                builder: (context, state) {
+                  if (state is AnimeSeasonaLoading) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is AnimeSeasonalFailure) {
+                    return Center(
+                      child: Text(state.errorMessage),
+                    );
+                  } else if (state is AnimeSeasonalSuccess) {
+                    return AnimeGridView(
+                      animes: state.animes,
+                    );
+                  } else {
+                    return SizedBox();
+                  }
+                },
+              ),
             ),
           ],
         ),

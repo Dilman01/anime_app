@@ -72,4 +72,34 @@ class AnimeRepository {
       throw Exception("Failed to get data!");
     }
   }
+
+  Future<List<Anime>> getSeasonalAnimes({
+    required int year,
+    required String season,
+    int limit = 500,
+  }) async {
+    final baseUrl =
+        "https://api.myanimelist.net/v2/anime/season/$year/${season.toLowerCase()}?limit=$limit";
+
+    // Make a GET request
+    final response = await http.get(
+      Uri.parse(baseUrl),
+      headers: {
+        'X-MAL-CLIENT-ID': clientId,
+      },
+    );
+
+    if (response.statusCode == 200) {
+      // Successful response
+      final Map<String, dynamic> data = json.decode(response.body);
+      final seasonalAnime = AnimeInfo.fromJson(data);
+
+      return seasonalAnime.animes.toList();
+    } else {
+      // Error handling
+      print("Error: ${response.statusCode}");
+      print("Body: ${response.body}");
+      throw Exception("Failed to get data!");
+    }
+  }
 }

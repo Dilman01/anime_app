@@ -1,5 +1,7 @@
+import 'package:anime_app/core/utils/utils.dart';
 import 'package:anime_app/cubits/anime_categories/anime_categories_cubit.dart';
 import 'package:anime_app/cubits/anime_search_cubit/anime_search_cubit.dart';
+import 'package:anime_app/cubits/anime_seasonal/anime_seasonal_cubit.dart';
 import 'package:anime_app/repositories/anime_repository.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +28,14 @@ class AnimeApp extends StatelessWidget {
           create: (context) => AnimeSearchCubit(
             AnimeRepository(),
           ),
+        ),
+        BlocProvider<AnimeSeasonalCubit>(
+          create: (context) => AnimeSeasonalCubit(
+            AnimeRepository(),
+          )..getSeasonalAnimes(
+              year: DateTime.now().year,
+              season: getCurrentSeason(),
+            ),
         ),
       ],
       child: MaterialApp(
