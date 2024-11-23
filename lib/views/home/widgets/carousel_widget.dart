@@ -1,3 +1,4 @@
+import 'package:anime_app/views/anime_details/anime_details_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:anime_app/cubits/anime_rank_cubit/anime_rank_cubit.dart';
@@ -49,14 +50,25 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                 ),
                 items: state.animes.map(
                   (anime) {
-                    return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            anime.node.mainPicture.large,
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => AnimeDetailsView(
+                              id: anime.node.id,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                              anime.node.mainPicture.large,
+                            ),
                           ),
                         ),
                       ),

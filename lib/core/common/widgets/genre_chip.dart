@@ -14,6 +14,7 @@ class GenreChip extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         horizontal: 8,
       ),
+      margin: EdgeInsets.symmetric(horizontal: 2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
@@ -21,7 +22,6 @@ class GenreChip extends StatelessWidget {
         ),
         color: Color.fromRGBO(2, 11, 37, 1),
       ),
-      // alignment: Alignment.center,
       child: Text(
         title,
         textAlign: TextAlign.center,

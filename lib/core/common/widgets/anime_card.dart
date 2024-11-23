@@ -1,99 +1,63 @@
 import 'package:flutter/material.dart';
 
-import 'package:anime_app/views/anime_details/anime_details_view.dart';
-
 class AnimeCard extends StatelessWidget {
   const AnimeCard({
     super.key,
-    this.title,
-    this.imageUrl,
+    required this.title,
+    required this.imageUrl,
   });
 
-  final String? title;
-  final String? imageUrl;
+  final String title;
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => AnimeDetailsView(),
+    return Stack(
+      children: [
+        Container(
+          width: 120,
+          margin: EdgeInsets.symmetric(horizontal: 5),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: NetworkImage(
+                imageUrl,
+              ),
+            ),
           ),
-        );
-      },
-      child: Stack(
-        children: [
-          Container(
-            width: 120,
+        ),
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Container(
             margin: EdgeInsets.symmetric(horizontal: 5),
+            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                  imageUrl ??
-                      'https://realwomenofgaming.com/wp-content/uploads/2022/01/mnt.jpg?w=1000',
-                ),
+              gradient: LinearGradient(
+                stops: [0, 0.6],
+                colors: [
+                  Colors.transparent,
+                  Colors.black.withOpacity(0.7),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+            child: Text(
+              title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 5),
-              padding: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  stops: [0, 0.6],
-                  colors: [
-                    Colors.transparent,
-                    Colors.black.withOpacity(0.7),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-              child: Text(
-                title ?? 'My Neighbor Totoro',
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              // child: Column(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     Text(
-              //       'My Neighbor Totoro',
-              //       overflow: TextOverflow.ellipsis,
-              //       maxLines: 2,
-              //       style: TextStyle(
-              //         fontSize: 12,
-              //         color: Colors.white,
-              //         fontWeight: FontWeight.w600,
-              //       ),
-              //     ),
-              //     Text(
-              //       '1988 - 1h 35m',
-              //       style: TextStyle(
-              //         fontSize: 12,
-              //         color: Colors.white,
-              //         fontWeight: FontWeight.w500,
-              //       ),
-              //     ),
-              //   ],
-              // ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

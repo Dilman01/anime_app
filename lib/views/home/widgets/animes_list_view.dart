@@ -1,5 +1,7 @@
-import 'package:anime_app/models/anime.dart';
 import 'package:flutter/material.dart';
+
+import 'package:anime_app/models/anime.dart';
+import 'package:anime_app/views/anime_details/anime_details_view.dart';
 import 'package:anime_app/core/common/widgets/anime_card.dart';
 
 class AnimesListView extends StatelessWidget {
@@ -16,9 +18,20 @@ class AnimesListView extends StatelessWidget {
         shrinkWrap: true,
         itemCount: animes.length,
         itemBuilder: (context, index) {
-          return AnimeCard(
-            title: animes[index].node.title,
-            imageUrl: animes[index].node.mainPicture.large,
+          return GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => AnimeDetailsView(
+                    id: animes[index].node.id,
+                  ),
+                ),
+              );
+            },
+            child: AnimeCard(
+              title: animes[index].node.title,
+              imageUrl: animes[index].node.mainPicture.large,
+            ),
           );
         },
       ),

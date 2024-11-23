@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AnimeTitle extends StatelessWidget {
-  const AnimeTitle({super.key});
+  const AnimeTitle({
+    super.key,
+    required this.title,
+    required this.score,
+  });
+
+  final String title;
+  final String score;
 
   @override
   Widget build(BuildContext context) {
@@ -9,11 +16,16 @@ class AnimeTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          'Violet Evergarden',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+        SizedBox(
+          width: 250,
+          child: Text(
+            title,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         Spacer(),
@@ -26,7 +38,7 @@ class AnimeTitle extends StatelessWidget {
           width: 2,
         ),
         Text(
-          '4.5',
+          score,
           style: TextStyle(
             fontSize: 16,
           ),

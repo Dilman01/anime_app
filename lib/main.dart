@@ -1,12 +1,14 @@
+import 'package:flutter/material.dart';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:anime_app/core/utils/utils.dart';
 import 'package:anime_app/cubits/anime_categories/anime_categories_cubit.dart';
+import 'package:anime_app/cubits/anime_details_cubit/anime_details_cubit.dart';
 import 'package:anime_app/cubits/anime_search_cubit/anime_search_cubit.dart';
 import 'package:anime_app/cubits/anime_seasonal/anime_seasonal_cubit.dart';
 import 'package:anime_app/repositories/anime_repository.dart';
-import 'package:flutter/material.dart';
-
 import 'package:anime_app/views/main_wrapper/main_wrapper.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const AnimeApp());
@@ -36,6 +38,11 @@ class AnimeApp extends StatelessWidget {
               year: DateTime.now().year,
               season: getCurrentSeason(),
             ),
+        ),
+        BlocProvider<AnimeDetailsCubit>(
+          create: (context) => AnimeDetailsCubit(
+            AnimeRepository(),
+          ),
         ),
       ],
       child: MaterialApp(

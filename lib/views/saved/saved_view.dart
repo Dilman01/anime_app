@@ -12,7 +12,9 @@ class SavedView extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: AnimeGridView(),
+        child: AnimeGridView(
+          animes: [],
+        ),
       ),
     );
   }
