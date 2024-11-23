@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:anime_app/blocs/anime_rank_cubit/anime_rank_cubit.dart';
+import 'package:anime_app/cubits/anime_rank_cubit/anime_rank_cubit.dart';
 import 'package:anime_app/repositories/anime_repository.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

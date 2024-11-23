@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:anime_app/models/anime_info.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/anime.dart';
@@ -39,6 +40,33 @@ class AnimeRepository {
 
       return animes;
     } else {
+      print("Error: ${response.statusCode}");
+      print("Body: ${response.body}");
+      throw Exception("Failed to get data!");
+    }
+  }
+
+  Future<List<Anime>> getAnimesbySearch({
+    required String query,
+  }) async {
+    final baseUrl = "https://api.myanimelist.net/v2/anime?q=$query";
+
+    final response = await http.get(
+      Uri.parse(baseUrl),
+      headers: {
+        'X-MAL-CLIENT-ID': clientId,
+      },
+    );
+
+    if (response.statusCode == 200) {
+      // Successful response
+      final Map<String, dynamic> data = json.decode(response.body);
+      AnimeInfo animeInfo = AnimeInfo.fromJson(data);
+      Iterable<Anime> animes = animeInfo.animes;
+
+      return animes.toList();
+    } else {
+      // Error handling
       print("Error: ${response.statusCode}");
       print("Body: ${response.body}");
       throw Exception("Failed to get data!");

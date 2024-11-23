@@ -1,4 +1,4 @@
-import 'package:anime_app/blocs/anime_categories/anime_categories_cubit.dart';
+import 'package:anime_app/cubits/anime_categories/anime_categories_cubit.dart';
 import 'package:anime_app/core/constants/anime_categories.dart';
 import 'package:anime_app/views/search/search_screen.dart';
 import 'package:flutter/material.dart';
