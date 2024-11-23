@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SearchGenreChip extends StatelessWidget {
-  const SearchGenreChip({
+class CategoryChip extends StatelessWidget {
+  const CategoryChip({
     super.key,
     required this.title,
     required this.onTap,
@@ -30,6 +30,7 @@ class SearchGenreChip extends StatelessWidget {
               : null,
           borderRadius: BorderRadius.circular(8),
         ),
+        margin: EdgeInsets.symmetric(horizontal: 4),
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         child: Text(
           title,

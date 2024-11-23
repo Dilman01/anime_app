@@ -22,7 +22,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
       create: (context) => AnimeRankCubit(AnimeRepository())
         ..getAnimesByRank(
           rankType: 'bypopularity',
-          limit: 6,
+          limit: 5,
         ),
       child: BlocBuilder<AnimeRankCubit, AnimeRankState>(
         builder: (context, state) {

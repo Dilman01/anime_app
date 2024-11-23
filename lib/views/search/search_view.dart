@@ -1,11 +1,14 @@
+import 'package:anime_app/blocs/anime_categories/anime_categories_cubit.dart';
+import 'package:anime_app/core/constants/anime_categories.dart';
 import 'package:anime_app/views/search/search_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:anime_app/core/common/widgets/anime_grid_view.dart';
 
 import 'package:anime_app/views/anime_details/widgets/custom_app_bar.dart';
-import 'package:anime_app/views/search/widgets/search_genre_chip.dart';
+import 'package:anime_app/views/search/widgets/category_chip.dart';
 import 'package:anime_app/views/search/widgets/search_text_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -47,60 +50,42 @@ class _SearchViewState extends State<SearchView> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SearchGenreChip(
-                    title: 'Adventure',
-                    isSelected: currentGenre == 0,
-                    onTap: () {
-                      setState(() {
-                        currentGenre = 0;
-                      });
-                    },
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  SearchGenreChip(
-                    title: 'Romance',
-                    isSelected: currentGenre == 1,
-                    onTap: () {
-                      setState(() {
-                        currentGenre = 1;
-                      });
-                    },
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  SearchGenreChip(
-                    title: 'Drama',
-                    isSelected: currentGenre == 2,
-                    onTap: () {
-                      setState(() {
-                        currentGenre = 2;
-                      });
-                    },
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  SearchGenreChip(
-                    title: 'Action',
-                    isSelected: currentGenre == 3,
-                    onTap: () {
-                      setState(() {
-                        currentGenre = 3;
-                      });
-                    },
-                  ),
-                ],
+                children: animeCtegories.asMap().entries.map(
+                  (entry) {
+                    return CategoryChip(
+                      title: entry.value.title,
+                      isSelected: currentGenre == entry.key,
+                      onTap: () {
+                        context
+                            .read<AnimeCategoriesCubit>()
+                            .getAnimesByRank(rankType: entry.value.rankingType);
+
+                        setState(() {
+                          currentGenre = entry.key;
+                        });
+                      },
+                    );
+                  },
+                ).toList(),
               ),
             ),
             SizedBox(
               height: 20,
             ),
             Expanded(
-              child: AnimeGridView(),
+              child: BlocBuilder<AnimeCategoriesCubit, AnimeCategoriesState>(
+                builder: (context, state) {
+                  if (state is! AnimeCategoriesSuccess) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+
+                  return AnimeGridView(
+                    animes: state.animes,
+                  );
+                },
+              ),
             ),
           ],
         ),

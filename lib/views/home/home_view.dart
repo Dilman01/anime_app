@@ -1,6 +1,6 @@
+import 'package:anime_app/core/constants/anime_home_categories.dart';
 import 'package:flutter/material.dart';
 
-import 'package:anime_app/core/constants/anime_categories.dart';
 import 'package:anime_app/views/home/widgets/anime_rank.dart';
 
 import 'package:anime_app/views/home/widgets/carousel_widget.dart';
@@ -22,9 +22,9 @@ class HomeView extends StatelessWidget {
                   ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: animeCategories.length,
+                    itemCount: animeHomeCategories.length,
                     itemBuilder: (context, index) {
-                      final category = animeCategories[index];
+                      final category = animeHomeCategories[index];
 
                       return AnimeRank(category: category);
                     },

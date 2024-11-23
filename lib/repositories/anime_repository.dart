@@ -44,30 +44,4 @@ class AnimeRepository {
       throw Exception("Failed to get data!");
     }
   }
-
-  // Future<String> getCategoryPictureApi({
-  //   required String category,
-  // }) async {
-  //   final baseUrl =
-  //       'https://api.myanimelist.net/v2/anime/ranking?ranking_type=$category&limit=1';
-
-  //   final response = await http.get(
-  //     Uri.parse(baseUrl),
-  //     headers: {
-  //       'X-MAL-CLIENT-ID': clientId,
-  //     },
-  //   );
-
-  //   if (response.statusCode == 200) {
-  //     final Map<String, dynamic> data = jsonDecode(response.body);
-  //     final animes = AnimeInfo.fromJson(data);
-  //     final mainPicture = animes.animes.first.node.mainPicture.large;
-
-  //     return mainPicture;
-  //   } else {
-  //     print("Error: ${response.statusCode}");
-  //     print("Body: ${response.body}");
-  //     throw Exception("Failed to get data!");
-  //   }
-  // }
 }
