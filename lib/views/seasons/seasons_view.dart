@@ -12,22 +12,22 @@ class SeasonsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Seasons'),
+        title: const Text('Seasons'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SeasonDropDownMenu(),
-            SizedBox(
+            const SeasonDropDownMenu(),
+            const SizedBox(
               height: 10,
             ),
             Expanded(
               child: BlocBuilder<AnimeSeasonalCubit, AnimeSeasonalState>(
                 builder: (context, state) {
                   if (state is AnimeSeasonaLoading) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(
                         color: Colors.blue,
                       ),
@@ -41,7 +41,7 @@ class SeasonsView extends StatelessWidget {
                       animes: state.animes,
                     );
                   } else {
-                    return SizedBox();
+                    return const SizedBox();
                   }
                 },
               ),

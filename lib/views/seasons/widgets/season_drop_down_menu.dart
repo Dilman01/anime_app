@@ -28,7 +28,7 @@ class _SeasonDropDownMenuState extends State<SeasonDropDownMenu> {
           width: MediaQuery.of(context).size.width * 0.4,
           menuHeight: 300,
           initialSelection: selectedYear.toString(),
-          menuStyle: MenuStyle(
+          menuStyle: const MenuStyle(
             elevation: WidgetStatePropertyAll(0),
             backgroundColor: WidgetStatePropertyAll(
               Color.fromRGBO(1, 6, 20, 1),
@@ -57,7 +57,7 @@ class _SeasonDropDownMenuState extends State<SeasonDropDownMenu> {
           width: MediaQuery.of(context).size.width * 0.4,
           menuHeight: 300,
           initialSelection: getCurrentSeason(),
-          menuStyle: MenuStyle(
+          menuStyle: const MenuStyle(
             elevation: WidgetStatePropertyAll(0),
             backgroundColor: WidgetStatePropertyAll(
               Color.fromRGBO(1, 6, 20, 1),

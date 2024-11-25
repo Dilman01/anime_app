@@ -19,16 +19,16 @@ class SearchScreen extends StatelessWidget {
           centerTitle: false,
           titleSpacing: 8,
           toolbarHeight: 80,
-          title: SearchTextField(),
+          title: const SearchTextField(),
         ),
         body: BlocBuilder<AnimeSearchCubit, AnimeSearchState>(
           builder: (context, state) {
             if (state is AnimeSearchInitial) {
-              return Center(
+              return const Center(
                 child: Text('Search for something...'),
               );
             } else if (state is AnimeSearchLoading) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(
                   color: Colors.blue,
                 ),
@@ -45,7 +45,7 @@ class SearchScreen extends StatelessWidget {
                 child: Text(state.errorMessage),
               );
             } else {
-              return SizedBox();
+              return const SizedBox();
             }
           },
         ),

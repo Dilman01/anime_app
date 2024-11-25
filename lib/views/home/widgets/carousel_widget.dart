@@ -29,7 +29,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
       child: BlocBuilder<AnimeRankCubit, AnimeRankState>(
         builder: (context, state) {
           if (state is! AnimeRankSuccess) {
-            return Center();
+            return const Center();
           }
           return Stack(
             children: [
@@ -39,7 +39,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                   height: 360,
                   enlargeCenterPage: true,
                   autoPlay: true,
-                  autoPlayAnimationDuration: Duration(milliseconds: 1500),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 1500),
                   viewportFraction: 0.7,
                   onPageChanged: (index, reason) {
                     setState(() {
@@ -60,7 +60,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                         );
                       },
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 5),
+                        margin: const EdgeInsets.symmetric(horizontal: 5),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           image: DecorationImage(
@@ -86,11 +86,11 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                       return Container(
                         width: 12,
                         height: 10,
-                        margin: EdgeInsets.symmetric(horizontal: 2),
+                        margin: const EdgeInsets.symmetric(horizontal: 2),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: _current == entry.key
-                              ? Color.fromRGBO(37, 136, 243, 1)
+                              ? const Color.fromRGBO(37, 136, 243, 1)
                               : Colors.white70,
                         ),
                       );

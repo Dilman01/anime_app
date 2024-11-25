@@ -34,7 +34,7 @@ class _AnimeDetailsViewState extends State<AnimeDetailsView> {
               if (state is AnimeDetailsLoading) {
                 return SizedBox(
                   height: MediaQuery.of(context).size.height,
-                  child: Center(
+                  child: const Center(
                     child: CircularProgressIndicator(
                       color: Colors.blue,
                     ),
@@ -51,7 +51,7 @@ class _AnimeDetailsViewState extends State<AnimeDetailsView> {
                     ImageSection(
                       imageUrl: state.animeDetails.mainPicture.large,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     DetailsSection(
@@ -60,7 +60,7 @@ class _AnimeDetailsViewState extends State<AnimeDetailsView> {
                   ],
                 );
               } else {
-                return SizedBox();
+                return const SizedBox();
               }
             },
           ),

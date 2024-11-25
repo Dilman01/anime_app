@@ -21,7 +21,7 @@ class TextHeader extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w500,
           ),
@@ -37,7 +37,7 @@ class TextHeader extends StatelessWidget {
               ),
             );
           },
-          child: Text(
+          child: const Text(
             'See all',
             style: TextStyle(
               fontSize: 18,

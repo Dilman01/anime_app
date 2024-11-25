@@ -16,7 +16,7 @@ class AnimeCard extends StatelessWidget {
       children: [
         Container(
           width: 120,
-          margin: EdgeInsets.symmetric(horizontal: 5),
+          margin: const EdgeInsets.symmetric(horizontal: 5),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             image: DecorationImage(
@@ -32,11 +32,11 @@ class AnimeCard extends StatelessWidget {
           left: 0,
           right: 0,
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 5),
-            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+            margin: const EdgeInsets.symmetric(horizontal: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                stops: [0, 0.6],
+                stops: const [0, 0.6],
                 colors: [
                   Colors.transparent,
                   Colors.black.withOpacity(0.7),
@@ -49,7 +49,7 @@ class AnimeCard extends StatelessWidget {
               title,
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
                 color: Colors.white,
                 fontWeight: FontWeight.w600,

@@ -51,14 +51,14 @@ class AnimeApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark().copyWith(
-            appBarTheme: AppBarTheme().copyWith(
+            appBarTheme: const AppBarTheme().copyWith(
               backgroundColor: Colors.transparent,
               elevation: 0,
               scrolledUnderElevation: 0,
             ),
-            scaffoldBackgroundColor: Color.fromRGBO(1, 6, 20, 1),
+            scaffoldBackgroundColor: const Color.fromRGBO(1, 6, 20, 1),
           ),
-          home: MainWrapper(),
+          home: const MainWrapper(),
         ),
       ),
     );

@@ -17,9 +17,9 @@ class CategoryChip extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromRGBO(2, 11, 37, 1),
+          color: const Color.fromRGBO(2, 11, 37, 1),
           gradient: isSelected
-              ? LinearGradient(
+              ? const LinearGradient(
                   colors: [
                     Color.fromRGBO(38, 132, 241, 1),
                     Color.fromRGBO(38, 132, 241, 0.7),
@@ -30,8 +30,8 @@ class CategoryChip extends StatelessWidget {
               : null,
           borderRadius: BorderRadius.circular(8),
         ),
-        margin: EdgeInsets.symmetric(horizontal: 4),
-        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         child: Text(
           title,
           style: TextStyle(

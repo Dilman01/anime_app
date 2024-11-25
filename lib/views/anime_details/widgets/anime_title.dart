@@ -22,24 +22,24 @@ class AnimeTitle extends StatelessWidget {
             title,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
-        Spacer(),
-        Icon(
+        const Spacer(),
+        const Icon(
           Icons.star,
           color: Color.fromRGBO(37, 136, 241, 1),
           size: 20,
         ),
-        SizedBox(
+        const SizedBox(
           width: 2,
         ),
         Text(
           score,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
           ),
         ),

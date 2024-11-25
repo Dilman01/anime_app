@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
       body: BlocBuilder<AnimeRankCubit, AnimeRankState>(
         builder: (context, state) {
           if (state is! AnimeRankSuccess) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(
                 color: Colors.blue,
               ),
@@ -29,10 +29,10 @@ class HomeView extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
                   child: Column(
                     children: [
-                      CarouselWidget(),
+                      const CarouselWidget(),
                       ListView.builder(
                         shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: animeHomeCategories.length,
                         itemBuilder: (context, index) {
                           final category = animeHomeCategories[index];

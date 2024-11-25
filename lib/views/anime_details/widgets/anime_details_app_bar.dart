@@ -21,14 +21,14 @@ class AnimeDetailsAppBar extends StatelessWidget {
               Navigator.of(context).pop();
             },
             padding: EdgeInsets.zero,
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios_new_rounded,
               color: Colors.white,
               size: 36,
             ),
           ),
         ),
-        Spacer(),
+        const Spacer(),
         Container(
           height: 42,
           width: 42,
@@ -39,14 +39,14 @@ class AnimeDetailsAppBar extends StatelessWidget {
           child: IconButton(
             onPressed: () {},
             padding: EdgeInsets.zero,
-            icon: Icon(
+            icon: const Icon(
               Icons.notifications_none_rounded,
               color: Colors.white,
               size: 36,
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Container(
@@ -59,7 +59,7 @@ class AnimeDetailsAppBar extends StatelessWidget {
           child: IconButton(
             onPressed: () {},
             padding: EdgeInsets.zero,
-            icon: Icon(
+            icon: const Icon(
               Icons.bookmark_border_rounded,
               color: Colors.white,
               size: 36,

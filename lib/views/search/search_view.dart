@@ -23,7 +23,7 @@ class _SearchViewState extends State<SearchView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           left: 10,
           right: 10,
           top: 40,
@@ -35,11 +35,11 @@ class _SearchViewState extends State<SearchView> {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => SearchScreen(),
+                    builder: (context) => const SearchScreen(),
                   ),
                 );
               },
-              child: SearchTextField(
+              child: const SearchTextField(
                 enabled: false,
               ),
             ),
@@ -72,7 +72,7 @@ class _SearchViewState extends State<SearchView> {
               child: BlocBuilder<AnimeCategoriesCubit, AnimeCategoriesState>(
                 builder: (context, state) {
                   if (state is! AnimeCategoriesSuccess) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(
                         color: Colors.blue,
                       ),

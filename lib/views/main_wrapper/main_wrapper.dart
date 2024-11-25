@@ -1,11 +1,10 @@
 import 'dart:ui';
 
-import 'package:anime_app/views/seasons/seasons_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:anime_app/views/home/home_view.dart';
-import 'package:anime_app/views/saved/saved_view.dart';
 import 'package:anime_app/views/search/search_view.dart';
+import 'package:anime_app/views/seasons/seasons_view.dart';
 
 class MainWrapper extends StatefulWidget {
   const MainWrapper({super.key});
@@ -18,10 +17,9 @@ class _MainWrapperState extends State<MainWrapper> {
   int selectedItem = 0;
 
   final List<Widget> screens = [
-    HomeView(),
-    SearchView(),
-    SeasonsView(),
-    SavedView(),
+    const HomeView(),
+    const SearchView(),
+    const SeasonsView(),
   ];
 
   @override
@@ -34,7 +32,7 @@ class _MainWrapperState extends State<MainWrapper> {
       ),
       bottomNavigationBar: Container(
         height: 80,
-        margin: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
         decoration: BoxDecoration(
           border: Border.all(
             width: 1,
@@ -43,7 +41,7 @@ class _MainWrapperState extends State<MainWrapper> {
           borderRadius: const BorderRadius.all(
             Radius.circular(24),
           ),
-          color: Color.fromRGBO(17, 45, 67, 0.7),
+          color: const Color.fromRGBO(17, 45, 67, 0.7),
         ),
         child: ClipRRect(
           borderRadius: const BorderRadius.all(
@@ -68,7 +66,7 @@ class _MainWrapperState extends State<MainWrapper> {
                         Icons.home_filled,
                         size: selectedItem == 0 ? 36 : 32,
                         color: selectedItem == 0
-                            ? Color.fromRGBO(35, 137, 242, 1)
+                            ? const Color.fromRGBO(35, 137, 242, 1)
                             : Colors.grey,
                       ),
                     ),
@@ -82,7 +80,7 @@ class _MainWrapperState extends State<MainWrapper> {
                         Icons.search,
                         size: selectedItem == 1 ? 36 : 32,
                         color: selectedItem == 1
-                            ? Color.fromRGBO(35, 137, 242, 1)
+                            ? const Color.fromRGBO(35, 137, 242, 1)
                             : Colors.grey,
                       ),
                     ),
@@ -96,21 +94,7 @@ class _MainWrapperState extends State<MainWrapper> {
                         Icons.auto_awesome,
                         size: selectedItem == 2 ? 36 : 32,
                         color: selectedItem == 2
-                            ? Color.fromRGBO(35, 137, 242, 1)
-                            : Colors.grey,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          selectedItem = 3;
-                        });
-                      },
-                      child: Icon(
-                        Icons.bookmark_rounded,
-                        size: selectedItem == 3 ? 36 : 32,
-                        color: selectedItem == 3
-                            ? Color.fromRGBO(35, 137, 242, 1)
+                            ? const Color.fromRGBO(35, 137, 242, 1)
                             : Colors.grey,
                       ),
                     ),

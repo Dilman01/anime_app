@@ -19,13 +19,13 @@ class SearchTextField extends StatelessWidget {
       autofocus: true,
       cursorColor: Colors.white,
       decoration: InputDecoration(
-        fillColor: Color.fromRGBO(2, 11, 37, 1),
+        fillColor: const Color.fromRGBO(2, 11, 37, 1),
         filled: true,
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(12),
         ),
-        prefixIcon: Icon(
+        prefixIcon: const Icon(
           Icons.search,
           size: 30,
         ),

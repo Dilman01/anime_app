@@ -27,13 +27,13 @@ class ImageSection extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(
+        const Positioned(
           left: 20,
           right: 20,
           top: 10,
           child: AnimeDetailsAppBar(),
         ),
-        Positioned(
+        const Positioned(
           left: 0,
           right: 0,
           bottom: -1,

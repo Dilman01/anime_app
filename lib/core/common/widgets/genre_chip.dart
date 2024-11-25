@@ -11,21 +11,21 @@ class GenreChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 8,
       ),
-      margin: EdgeInsets.symmetric(horizontal: 2),
+      margin: const EdgeInsets.symmetric(horizontal: 2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: Color.fromRGBO(6, 23, 66, 1),
+          color: const Color.fromRGBO(6, 23, 66, 1),
         ),
-        color: Color.fromRGBO(2, 11, 37, 1),
+        color: const Color.fromRGBO(2, 11, 37, 1),
       ),
       child: Text(
         title,
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w300,
           color: Color.fromRGBO(124, 140, 162, 1),

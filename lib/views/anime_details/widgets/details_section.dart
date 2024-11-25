@@ -23,7 +23,7 @@ class DetailsSection extends StatelessWidget {
             title: animeDetails.title,
             score: animeDetails.mean?.toString() ?? '0',
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           SingleChildScrollView(
@@ -38,17 +38,17 @@ class DetailsSection extends StatelessWidget {
               ).toList(),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           AnimeDescription(
             description: animeDetails.synopsis,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           if (animeDetails.relatedAnime.isNotEmpty)
-            Text(
+            const Text(
               'Related Animes',
               style: TextStyle(
                 fontSize: 18,
@@ -56,7 +56,7 @@ class DetailsSection extends StatelessWidget {
               ),
             ),
           if (animeDetails.relatedAnime.isNotEmpty)
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           if (animeDetails.relatedAnime.isNotEmpty)
@@ -87,11 +87,11 @@ class DetailsSection extends StatelessWidget {
               ),
             ),
           if (animeDetails.relatedAnime.isNotEmpty)
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           if (animeDetails.recommendations.isNotEmpty)
-            Text(
+            const Text(
               'Recommendations',
               style: TextStyle(
                 fontSize: 18,
@@ -99,7 +99,7 @@ class DetailsSection extends StatelessWidget {
               ),
             ),
           if (animeDetails.recommendations.isNotEmpty)
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           if (animeDetails.recommendations.isNotEmpty)
@@ -130,7 +130,7 @@ class DetailsSection extends StatelessWidget {
               ),
             ),
           if (animeDetails.recommendations.isNotEmpty)
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
         ],

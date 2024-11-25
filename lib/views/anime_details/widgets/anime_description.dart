@@ -14,14 +14,14 @@ class AnimeDescription extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Description',
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w500,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
         ReadMoreText(
@@ -33,10 +33,10 @@ class AnimeDescription extends StatelessWidget {
           ),
           trimMode: TrimMode.Line,
           trimLines: 3,
-          colorClickableText: Color.fromRGBO(37, 136, 241, 0.7),
+          colorClickableText: const Color.fromRGBO(37, 136, 241, 0.7),
           trimCollapsedText: 'Show more',
           trimExpandedText: '\nShow less',
-          moreStyle: TextStyle(
+          moreStyle: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
             color: Color.fromRGBO(37, 136, 241, 1),

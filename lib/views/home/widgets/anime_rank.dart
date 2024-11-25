@@ -26,7 +26,7 @@ class AnimeRank extends StatelessWidget {
       child: BlocBuilder<AnimeRankCubit, AnimeRankState>(
         builder: (context, state) {
           if (state is! AnimeRankSuccess) {
-            return SizedBox();
+            return const SizedBox();
           }
 
           return Column(
