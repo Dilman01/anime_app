@@ -1,9 +1,11 @@
 import 'package:anime_app/core/constants/anime_home_categories.dart';
+import 'package:anime_app/cubits/anime_rank_cubit/anime_rank_cubit.dart';
 import 'package:flutter/material.dart';
 
 import 'package:anime_app/views/home/widgets/anime_rank.dart';
 
 import 'package:anime_app/views/home/widgets/carousel_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -11,29 +13,40 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
-              child: Column(
-                children: [
-                  CarouselWidget(),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: animeHomeCategories.length,
-                    itemBuilder: (context, index) {
-                      final category = animeHomeCategories[index];
-
-                      return AnimeRank(category: category);
-                    },
-                  ),
-                ],
+      body: BlocBuilder<AnimeRankCubit, AnimeRankState>(
+        builder: (context, state) {
+          if (state is! AnimeRankSuccess) {
+            return Center(
+              child: CircularProgressIndicator(
+                color: Colors.blue,
               ),
-            ),
-          ),
-        ],
+            );
+          }
+          return CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+                  child: Column(
+                    children: [
+                      CarouselWidget(),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: animeHomeCategories.length,
+                        itemBuilder: (context, index) {
+                          final category = animeHomeCategories[index];
+
+                          return AnimeRank(category: category);
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

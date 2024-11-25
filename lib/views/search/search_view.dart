@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'package:anime_app/core/common/widgets/anime_grid_view.dart';
 
-import 'package:anime_app/views/anime_details/widgets/custom_app_bar.dart';
 import 'package:anime_app/views/search/widgets/category_chip.dart';
 import 'package:anime_app/views/search/widgets/search_text_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,11 +22,12 @@ class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: CustomAppBar(),
-      ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.only(
+          left: 10,
+          right: 10,
+          top: 40,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -43,41 +43,39 @@ class _SearchViewState extends State<SearchView> {
                 enabled: false,
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: animeCtegories.asMap().entries.map(
-                  (entry) {
-                    return CategoryChip(
-                      title: entry.value.title,
-                      isSelected: currentGenre == entry.key,
-                      onTap: () {
-                        context
-                            .read<AnimeCategoriesCubit>()
-                            .getAnimesByRank(rankType: entry.value.rankingType);
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: animeCtegories.asMap().entries.map(
+                    (entry) {
+                      return CategoryChip(
+                        title: entry.value.title,
+                        isSelected: currentGenre == entry.key,
+                        onTap: () {
+                          context.read<AnimeCategoriesCubit>().getAnimesByRank(
+                              rankType: entry.value.rankingType);
 
-                        setState(() {
-                          currentGenre = entry.key;
-                        });
-                      },
-                    );
-                  },
-                ).toList(),
+                          setState(() {
+                            currentGenre = entry.key;
+                          });
+                        },
+                      );
+                    },
+                  ).toList(),
+                ),
               ),
-            ),
-            SizedBox(
-              height: 20,
             ),
             Expanded(
               child: BlocBuilder<AnimeCategoriesCubit, AnimeCategoriesState>(
                 builder: (context, state) {
                   if (state is! AnimeCategoriesSuccess) {
                     return Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator(
+                        color: Colors.blue,
+                      ),
                     );
                   }
 

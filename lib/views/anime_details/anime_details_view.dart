@@ -32,8 +32,13 @@ class _AnimeDetailsViewState extends State<AnimeDetailsView> {
           child: BlocBuilder<AnimeDetailsCubit, AnimeDetailsState>(
             builder: (context, state) {
               if (state is AnimeDetailsLoading) {
-                return Center(
-                  child: CircularProgressIndicator(),
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.blue,
+                    ),
+                  ),
                 );
               } else if (state is AnimeDetailsFailure) {
                 return Center(

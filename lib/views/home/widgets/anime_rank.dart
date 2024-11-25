@@ -16,8 +16,9 @@ class AnimeRank extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AnimeRankCubit>(
-      create: (context) => AnimeRankCubit(AnimeRepository())
-        ..getAnimesByRank(
+      create: (context) => AnimeRankCubit(
+        context.read<AnimeRepository>(),
+      )..getAnimesByRank(
           rankType: category.rankingType,
           limit: 500,
         ),
@@ -25,9 +26,7 @@ class AnimeRank extends StatelessWidget {
       child: BlocBuilder<AnimeRankCubit, AnimeRankState>(
         builder: (context, state) {
           if (state is! AnimeRankSuccess) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
+            return SizedBox();
           }
 
           return Column(

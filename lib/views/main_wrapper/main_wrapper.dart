@@ -28,7 +28,10 @@ class _MainWrapperState extends State<MainWrapper> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: screens[selectedItem],
+      body: IndexedStack(
+        index: selectedItem,
+        children: screens,
+      ),
       bottomNavigationBar: Container(
         height: 80,
         margin: EdgeInsets.symmetric(horizontal: 24, vertical: 10),

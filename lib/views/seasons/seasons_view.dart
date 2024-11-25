@@ -28,7 +28,9 @@ class SeasonsView extends StatelessWidget {
                 builder: (context, state) {
                   if (state is AnimeSeasonaLoading) {
                     return Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator(
+                        color: Colors.blue,
+                      ),
                     );
                   } else if (state is AnimeSeasonalFailure) {
                     return Center(
