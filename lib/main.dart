@@ -8,7 +8,6 @@ import 'package:anime_app/views/main_wrapper/main_wrapper.dart';
 import 'package:anime_app/repositories/anime_repository.dart';
 import 'package:anime_app/cubits/anime_rank_cubit/anime_rank_cubit.dart';
 import 'package:anime_app/cubits/anime_categories/anime_categories_cubit.dart';
-import 'package:anime_app/cubits/anime_details_cubit/anime_details_cubit.dart';
 import 'package:anime_app/cubits/anime_seasonal/anime_seasonal_cubit.dart';
 
 void main() {
@@ -36,11 +35,6 @@ class AnimeApp extends StatelessWidget {
                 year: DateTime.now().year,
                 season: getCurrentSeason(),
               ),
-          ),
-          BlocProvider<AnimeDetailsCubit>(
-            create: (context) => AnimeDetailsCubit(
-              context.read<AnimeRepository>(),
-            ),
           ),
           BlocProvider<AnimeRankCubit>(
             create: (context) => AnimeRankCubit(

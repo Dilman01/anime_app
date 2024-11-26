@@ -69,7 +69,7 @@ class DetailsSection extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(
+                      Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => AnimeDetailsView(
                             id: animeDetails.relatedAnime[index].node.id,
@@ -112,7 +112,7 @@ class DetailsSection extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(
+                      Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => AnimeDetailsView(
                             id: animeDetails.recommendations[index].node.id,
